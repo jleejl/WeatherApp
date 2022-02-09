@@ -21,123 +21,123 @@ class ForecastActivity : AppCompatActivity() {
         ),     // Jan 31, 2022
         DayForecast(
             1643752195,
-            "Sunrise: 5:01am",
-            "Sunset: 9:00pm",
-            "Temp: 72°",
-            "High: 80°",
-            "Low: 65°"
+            "Sunrise: 5:12am",
+            "Sunset: 9:05pm",
+            "Temp: 75°",
+            "High: 88°",
+            "Low: 55°"
         ),   // Feb 1
         DayForecast(
             1643838595,
-            "Sunrise: 5:01am",
-            "Sunset: 9:00pm",
-            "Temp: 72°",
+            "Sunrise: 5:23am",
+            "Sunset: 9:10pm",
+            "Temp: 79°",
             "High: 80°",
-            "Low: 65°"
+            "Low: 45°"
         ),   // Feb 2
         DayForecast(
             1643924995,
-            "Sunrise: 5:01am",
-            "Sunset: 9:00pm",
+            "Sunrise: 5:34am",
+            "Sunset: 9:15pm",
             "Temp: 72°",
-            "High: 80°",
-            "Low: 65°"
+            "High: 89°",
+            "Low: 55°"
         ),   // Feb 3
         DayForecast(
             1644011395,
-            "Sunrise: 5:01am",
-            "Sunset: 9:00pm",
-            "Temp: 72°",
-            "High: 80°",
-            "Low: 65°"
+            "Sunrise: 5:45am",
+            "Sunset: 9:20pm",
+            "Temp: 70°",
+            "High: 88°",
+            "Low: 69°"
         ),   // Feb 4
         DayForecast(
             1644099673,
-            "Sunrise: 5:01am",
-            "Sunset: 9:00pm",
-            "Temp: 72°",
-            "High: 80°",
+            "Sunrise: 5:51am",
+            "Sunset: 9:25pm",
+            "Temp: 70°",
+            "High: 100°",
             "Low: 65°"
         ),   // Feb 5
         DayForecast(
             1644186073,
-            "Sunrise: 5:01am",
-            "Sunset: 9:00pm",
-            "Temp: 72°",
-            "High: 80°",
+            "Sunrise: 6:01am",
+            "Sunset: 9:30pm",
+            "Temp: 65°",
+            "High: 89°",
             "Low: 65°"
         ),   // Feb 6
         DayForecast(
             1644272473,
-            "Sunrise: 5:01am",
-            "Sunset: 9:00pm",
-            "Temp: 72°",
+            "Sunrise: 6:11am",
+            "Sunset: 9:35pm",
+            "Temp: 55°",
             "High: 80°",
-            "Low: 65°"
+            "Low: 54°"
         ),   // Feb 7
         DayForecast(
             1644358873,
-            "Sunrise: 5:01am",
-            "Sunset: 9:00pm",
-            "Temp: 72°",
-            "High: 80°",
-            "Low: 65°"
+            "Sunrise: 6:21am",
+            "Sunset: 9:40pm",
+            "Temp: 89°",
+            "High: 90°",
+            "Low: 55°"
         ),   // Feb 8
         DayForecast(
             1644445273,
-            "Sunrise: 5:01am",
-            "Sunset: 9:00pm",
-            "Temp: 72°",
+            "Sunrise: 6:31am",
+            "Sunset: 9:45pm",
+            "Temp: 80°",
             "High: 80°",
-            "Low: 65°"
+            "Low: 69°"
         ),   // Feb 9
         DayForecast(
             1644531673,
             "Sunrise: 5:01am",
-            "Sunset: 9:00pm",
+            "Sunset: 9:30pm",
             "Temp: 72°",
-            "High: 80°",
+            "High: 90°",
             "Low: 65°"
         ),   // Feb 10
         DayForecast(
             1644618073,
             "Sunrise: 5:01am",
-            "Sunset: 9:00pm",
-            "Temp: 72°",
+            "Sunset: 9:25pm",
+            "Temp: 77°",
             "High: 80°",
-            "Low: 65°"
+            "Low: 56°"
         ),   // Feb 11
         DayForecast(
             1644704473,
             "Sunrise: 5:01am",
-            "Sunset: 9:00pm",
-            "Temp: 72°",
-            "High: 80°",
-            "Low: 65°"
+            "Sunset: 9:20pm",
+            "Temp: 88°",
+            "High: 90°",
+            "Low: 70°"
         ),   // Feb 12
         DayForecast(
             1644790873,
             "Sunrise: 5:01am",
-            "Sunset: 9:00pm",
-            "Temp: 72°",
-            "High: 80°",
-            "Low: 65°"
+            "Sunset: 9:15pm",
+            "Temp: 89°",
+            "High: 99°",
+            "Low: 68°"
         ),   // Feb 13
         DayForecast(
             1644877273,
             "Sunrise: 5:01am",
-            "Sunset: 9:00pm",
-            "Temp: 72°",
-            "High: 80°",
-            "Low: 65°"
+            "Sunset: 9:10pm",
+            "Temp: 100°",
+            "High: 111°",
+            "Low: 59°"
         ),   // Feb 14
         DayForecast(
             1644963673,
             "Sunrise: 5:01am",
-            "Sunset: 9:00pm",
-            "Temp: 72°",
+            "Sunset: 9:05pm",
+            "Temp: 66°",
             "High: 80°",
-            "Low: 65°"
+            "Low: 50°"
         )   // Feb 15
 
         // THIS IS FOR NEXT ASSIGNMENT
