@@ -32,7 +32,8 @@ class MyAdapter(private val data: List<DayForecast>) :
         private val maxView: TextView = view.findViewById(R.id.max)
         private val minView: TextView = view.findViewById(R.id.min)
 
-        fun bindIcon(data: DayForecast) {
+        fun bind(data: DayForecast) {
+            // Icon
             val iconName = data.weather.firstOrNull()?.icon
             val iconUrl =
                 "https://openweathermap.org/img/wn/${iconName}@2x.png"    // Has to be https
@@ -40,46 +41,29 @@ class MyAdapter(private val data: List<DayForecast>) :
             Glide.with(this.forecastIcon)   // Can pass in a view
                 .load(iconUrl)
                 .into(forecastIcon)
-        }
+            // Date
+            val dateInstant = Instant.ofEpochSecond(data.date)
+            val dateTime = LocalDateTime.ofInstant(dateInstant, ZoneId.systemDefault())
+            // Sunrise
+            val sunriseInstant = Instant.ofEpochSecond(data.sunrise)
+            val sunriseTime = LocalDateTime.ofInstant(sunriseInstant, ZoneId.systemDefault())
+            val sunriseHours = formatter2.format(sunriseTime).toInt()  // h
+            val sunriseMin = formatter3.format(sunriseTime).toInt()  // mm
+            // Sunset
+            val sunsetInstant = Instant.ofEpochSecond(data.sunset)
+            val sunsetTime = LocalDateTime.ofInstant(sunsetInstant, ZoneId.systemDefault())
+            val sunsetHours = formatter2.format(sunsetTime).toInt()   // h
+            val sunsetMin = formatter3.format(sunsetTime).toInt()  // mm
 
-        fun bindDate(data: DayForecast) {
-            val instant = Instant.ofEpochSecond(data.date)
-            val dateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault())
             dateView.text = formatter1.format(dateTime)
-        }
-
-        fun bindSunrise(data: DayForecast) {
-            val instant = Instant.ofEpochSecond(data.sunrise)
-            val dateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault())
-            val hours = formatter2.format(dateTime).toInt()  // h
-            val min = formatter3.format(dateTime).toInt()  // mm
-
-            sunriseView.text = sunriseView.context.getString(R.string.sunrise, hours, min)
-        }
-
-        fun bindSunset(data: DayForecast) {
-            val instant = Instant.ofEpochSecond(data.sunset)
-            val dateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault())
-            val hours = formatter2.format(dateTime).toInt()   // h
-            val min = formatter3.format(dateTime).toInt()  // mm
-
-            sunsetView.text = sunsetView.context.getString(R.string.sunset, hours, min)
-        }
-
-        // Bind for day temperature, Temp
-        fun bindTempDay(data: DayForecast) {
+            sunriseView.text =
+                sunriseView.context.getString(R.string.sunrise, sunriseHours, sunriseMin)
+            sunsetView.text = sunsetView.context.getString(R.string.sunset, sunsetHours, sunsetMin)
             tempView.text =
                 tempView.context.getString(R.string.temp, data.temp.day.toInt())
-        }
-
-        // Bind for max temperature, Max/High
-        fun bindTempMax(data: DayForecast) {
             maxView.text = maxView.context.getString(R.string.max, data.temp.max.toInt())
-        }
-
-        // Bind for min temperature, Min/Low
-        fun bindTempMin(data: DayForecast) {
             minView.text = minView.context.getString(R.string.min, data.temp.min.toInt())
+
         }
     }
 
@@ -106,13 +90,7 @@ class MyAdapter(private val data: List<DayForecast>) :
      * second parameter is the position
      */
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindDate(data[position])
-        holder.bindSunrise(data[position])
-        holder.bindSunset(data[position])
-        holder.bindTempDay(data[position])
-        holder.bindTempMax(data[position])
-        holder.bindTempMin(data[position])
-        holder.bindIcon(data[position])
+        holder.bind(data[position])
     }
 
     /**
