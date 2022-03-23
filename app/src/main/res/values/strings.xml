@@ -21,4 +21,13 @@
     <string name="min">Low: %1$d°</string>
     <string name="sunrise">Sunrise: %1$s:%2$sam</string>
     <string name="sunset">Sunset: %1$s:%2$spm</string>
+
+    <!-- String for Search -->
+    <string name="enter_a_zip_code">Enter a ZIP code</string>
+    <string name="search">Search</string>
+    <string name="zip_code">Zip Code</string>
+
+    <!-- String for Error Dialog -->
+    <string name="ok">Ok</string>
+
 </resources>

@@ -5,9 +5,14 @@
       <map>
         <entry key="..\:/Users/jack/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/activity_display_forcast_data.xml" value="0.21403508771929824" />
         <entry key="..\:/Users/jack/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/activity_display_forecast_data.xml" value="0.176" />
-        <entry key="..\:/Users/jack/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/activity_forecast.xml" value="0.264" />
+        <entry key="..\:/Users/jack/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/activity_forecast.xml" value="0.1" />
         <entry key="..\:/Users/jack/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/jack/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/row_date.xml" value="0.4" />
+        <entry key="..\:/Users/jack/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/fragment_blank.xml" value="0.29936594202898553" />
+        <entry key="..\:/Users/jack/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/fragment_current_conditions.xml" value="0.264" />
+        <entry key="..\:/Users/jack/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/fragment_forecast.xml" value="0.3087719298245614" />
+        <entry key="..\:/Users/jack/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/fragment_search.xml" value="0.264" />
+        <entry key="..\:/Users/jack/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/row_date.xml" value="0.3087719298245614" />
+        <entry key="..\:/Users/jack/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/test.xml" value="0.2969298245614035" />
       </map>
     </option>
   </component>
