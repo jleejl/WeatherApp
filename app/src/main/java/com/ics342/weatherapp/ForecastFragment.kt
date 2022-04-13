@@ -39,7 +39,16 @@ class ForecastFragment : Fragment(R.layout.fragment_forecast) {
         viewModel.forecast.observe(this) { forecast ->
             bindData(forecast)
         }
-        viewModel.loadData(args.argStringZipCode)
+
+        // This is the ZIP Code and Location Coordinates from Current Condition Fragment
+        val inputZipCode = args.argStringZipCode
+        val passLocationCoordinates = args.argCoordinates
+
+        if (inputZipCode.isNotEmpty()) {
+            viewModel.loadData(inputZipCode)
+        } else {
+            viewModel.loadCoordinatesData(passLocationCoordinates)
+        }
     }
 
     private fun bindData(forecast: Forecast) {

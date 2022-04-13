@@ -29,5 +29,16 @@
 
     <!-- String for Error Dialog -->
     <string name="ok">Ok</string>
+    <string name="request_location">Current Location</string>
+
+    <string name="location_permission_rationale">Location is unavailable because the
+        features requires a permission. \n\nTo Allow Permission, go to
+        Settings > Apps > ShowWeather > Permissions > Location, then choose you options.</string>
+    <string name="location_permission_rationale_button">Ok</string>
+
+    <!-- String for showLocationNotFoundDialog() -->
+    <string name="location_not_found">If Location is Not Found,
+        open Google Maps and press blue dot for you location.</string>
+    <string name="location_not_found_button">Ok</string>
 
 </resources>

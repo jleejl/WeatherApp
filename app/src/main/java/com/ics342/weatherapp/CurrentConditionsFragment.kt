@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -33,15 +34,8 @@ class CurrentConditionsFragment : Fragment(R.layout.fragment_current_conditions)
         // Set title of an Activity owned AppBar from a fragment
         requireActivity().title = "Current Conditions"
 
-        /*
-          ZIP Code stored here to be pass on to next Forecast Fragment when
-          button is clicked
-          */
-        val passInputZipCode = args.argStringZipCode
-
-        // Call button to navigate to Forecast Fragment
         binding.forecastButton.setOnClickListener {
-            navigateToForecastFragment(passInputZipCode)
+            navigateToForecastFragment()
         }
     }
 
@@ -50,12 +44,16 @@ class CurrentConditionsFragment : Fragment(R.layout.fragment_current_conditions)
         viewModel.currentConditions.observe(this) { currentConditions ->
             bindData(currentConditions)
         }
+
+        // This is the ZIP Code and Location Coordinates from searchFragment
         val inputZipCode = args.argStringZipCode
-        /*
-         Takes the ZIP Code here and pass it to CurrentConditionsViewModel Class
-         function loadData()
-         */
-        viewModel.loadData(inputZipCode)
+        val passLocationCoordinates = args.argCoordinates
+
+        if (inputZipCode.isNotEmpty()) {
+            viewModel.loadData(inputZipCode)
+        } else {
+            viewModel.loadCoordinatesData(passLocationCoordinates)
+        }
     }
 
     private fun bindData(currentConditions: CurrentConditions) {
@@ -80,9 +78,15 @@ class CurrentConditionsFragment : Fragment(R.layout.fragment_current_conditions)
             getString(R.string.humidity, currentConditions.main.humidity.toInt())
     }
 
-    private fun navigateToForecastFragment(zipCode: String) {
-        val action = CurrentConditionsFragmentDirections
-            .actionCurrentConditionsFragmentToForecastFragment(zipCode)
+    private fun navigateToForecastFragment() {
+        val passInputZipCode = args.argStringZipCode
+        val passCoordinates = args.argCoordinates
+
+        val action =
+            CurrentConditionsFragmentDirections.actionCurrentConditionsFragmentToForecastFragment(
+                passCoordinates,
+                passInputZipCode
+            )
         findNavController().navigate(action)
     }
 
