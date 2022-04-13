@@ -23,6 +23,9 @@
             android:id="@+id/action_currentConditionsFragment_to_forecastFragment"
             app:destination="@id/forecastFragment" />
         <argument
+            android:name="argCoordinates"
+            app:argType="com.ics342.weatherapp.Coordinates" />
+        <argument
             android:name="argStringZipCode"
             app:argType="string" />
     </fragment>
@@ -31,6 +34,9 @@
         android:name="com.ics342.weatherapp.ForecastFragment"
         android:label="ForecastFragment"
         tools:layout="@layout/fragment_forecast">
+        <argument
+            android:name="argCoordinates"
+            app:argType="com.ics342.weatherapp.Coordinates" />
         <argument
             android:name="argStringZipCode"
             app:argType="string" />

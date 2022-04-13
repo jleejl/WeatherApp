@@ -21,4 +21,14 @@ class CurrentConditionsViewModel @Inject constructor(private val service: Api) :
             _currentConditions.value = service.getCurrentConditions(zipCode)
         }
     }
+
+    // Coordinates
+    fun loadCoordinatesData(coordinates: Coordinates) = runBlocking {
+        launch {
+            _currentConditions.value = service.getCurrentConditionsCoordinates(
+                coordinates.lat.toString(),
+                coordinates.lon.toString()
+            )
+        }
+    }
 }

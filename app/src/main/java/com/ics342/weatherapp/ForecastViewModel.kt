@@ -21,4 +21,14 @@ class ForecastViewModel @Inject constructor(private val service: Api) : ViewMode
             _forecast.value = service.getForecast(zipCode)
         }
     }
+
+    // Coordinates
+    fun loadCoordinatesData(coordinates: Coordinates) = runBlocking {
+        launch {
+            _forecast.value = service.getForecastCoordinates(
+                coordinates.lat.toString(),
+                coordinates.lon.toString()
+            )
+        }
+    }
 }
