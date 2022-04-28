@@ -25,7 +25,9 @@
     <!-- String for Search -->
     <string name="enter_a_zip_code">Enter a ZIP code</string>
     <string name="search">Search</string>
-    <string name="zip_code">Zip Code</string>
+    <string name="zip_code">ZIP Code</string>
+    <string name="notifications_on">Turn on notifications</string>
+    <string name="notifications_off">Turn off notifications</string>
 
     <!-- String for Error Dialog -->
     <string name="ok">Ok</string>
@@ -40,5 +42,7 @@
     <string name="location_not_found">If Location is Not Found,
         open Google Maps and press blue dot for you location.</string>
     <string name="location_not_found_button">Ok</string>
+
+
 
 </resources>

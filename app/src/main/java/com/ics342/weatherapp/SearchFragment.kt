@@ -1,40 +1,24 @@
 package com.ics342.weatherapp
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.app.AlertDialog
-import android.app.NotificationManager
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
-import android.location.LocationManager
 import android.os.Build
 import android.os.Bundle
-import android.os.DeadObjectException
-import android.os.Looper
-import android.provider.Settings
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.content.UnusedAppRestrictionsConstants
-import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.location.*
 import com.ics342.weatherapp.databinding.FragmentSearchBinding
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.concurrent.TimeUnit
-import java.util.jar.Manifest
 import javax.inject.Inject
 
 /**
@@ -62,6 +46,24 @@ class SearchFragment : Fragment(R.layout.fragment_search),
             }
         }
 
+    @RequiresApi(Build.VERSION_CODES.O)
+    private val requestPermissionResultNotification =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+            if (isGranted) {
+                binding.notificationsButton.text = "Turn off notifications"
+
+                val text = "Location Permission Granted"
+                val duration = Toast.LENGTH_SHORT
+                val toast = Toast.makeText(context, text, duration)
+
+                toast.show()
+                startService()
+            } else {
+                showLocationPermissionRationale()
+            }
+        }
+
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentSearchBinding.bind(view)
@@ -109,6 +111,47 @@ class SearchFragment : Fragment(R.layout.fragment_search),
             override fun afterTextChanged(s: Editable?) {
             }
         })
+
+        // Notification button
+        binding.notificationsButton.setOnClickListener {
+            if (binding.notificationsButton.text == "Turn on notifications") {
+
+                // Checks for the permission when button is clicked
+                if (ActivityCompat.checkSelfPermission(
+                        requireActivity(),
+                        android.Manifest.permission.ACCESS_FINE_LOCATION
+                    )
+                    != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                        requireActivity(),
+                        android.Manifest.permission.ACCESS_COARSE_LOCATION
+                    )
+                    != PackageManager.PERMISSION_GRANTED
+                ) {
+
+                    requestPermissionResultNotification.launch(android.Manifest.permission.ACCESS_COARSE_LOCATION)
+                } else {
+                    binding.notificationsButton.text = "Turn off notifications"
+                    startService()
+                }
+
+            } else {
+                binding.notificationsButton.text = "Turn on notifications"
+                stopService()
+            }
+        }
+    }
+
+    // Start service
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun startService() {
+        val intent = Intent(context, MyService::class.java)
+        requireActivity().startForegroundService(intent)
+    }
+
+    // Stop service
+    private fun stopService() {
+        val intent = Intent(context, MyService::class.java)
+        requireActivity().stopService(intent)
     }
 
     private fun navigateToCurrentCondition() {
